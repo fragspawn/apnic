@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+        </script>
+    <script>
+        window.addEventListener("load", getForGraph);
+
+        function getForGraph() {
+            var queueURL = "ws/ws.php?getData=smalllist";
+            $.ajax({
+                url: queueURL,
+                method: 'get',
+                datatype: 'json',
+                success: function(res) {
+                    showGraph(res);
+                },
+                error: function(err) {
+                    console.log('err');
+                    console.log(err);
+                }
+            });
+        }
+        function showGraph(jsonObj) {
+            var xAxus = [];
+            var yAxus = [];
+            for(var loop = 0;loop<jsonObj.length;loop++) {
+                xAxus.push(jsonObj[loop].x);
+                yAxus.push(jsonObj[loop].y);
+            }
+            var ctx = document.getElementById("graphout").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    datasets: [{
+                        label: 'Some graph with data',
+                        data: yAxus 
+                    }],
+                    labels: xAxus 
+                }
+            });
+        }
+    </script>
+    </head>
+    <body>
+        <canvas id="graphout" width="800" height="600"></canvas>
+    </body>
+</html>

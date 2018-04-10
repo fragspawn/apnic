@@ -1,0 +1,3 @@
+#!/bin/bash
+curl http://localhost/~jp/apnic/ws/ws.php?getData=list
+curl http://localhost/~jp/apnic/ws/ws.php?getData=smalllist
