@@ -10,6 +10,7 @@ RUN git clone https://github.com/fragspawn/apnic.git /app
 EXPOSE 80 3306
 
 RUN /usr/bin/mysql_install_db --datadir=/var/lib/mysql
+RUN /usr/bin/mysqld_safe &
 #RUN cat /root/.mysql_secret
 
 RUN sh /app/deploy/sql/sqlfetch.sh
