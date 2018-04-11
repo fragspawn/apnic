@@ -1,1 +1,1 @@
-<?php  = 'asdf' ?>
+<?php  $pass = '' ?>

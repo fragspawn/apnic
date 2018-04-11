@@ -1,1 +1,11 @@
-run deploy/docker-deploy.sh mysqlrootpass
+I've failed to get this app to deploy in docker, because of mysql
+
+The perennial security question is how do we incorporate passwords but not expose them in an untrusted way like on GitHub.
+
+I've tried parameter passing, so on instantiation, set your password as an argument.
+
+This does not work well with dockerfile or docker-compose.yml
+
+Will spend another hour or two but, going to lunch...
+
+JP
