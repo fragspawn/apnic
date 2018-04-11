@@ -12,5 +12,5 @@ EXPOSE 80 3306
 RUN /usr/bin/mysql_install_db --datadir=/var/lib/mysql
 #RUN cat /root/.mysql_secret
 
-RUN sh /app/deploy/sql/sqlfetch.sh {MYSQL_ROOT_PASSWORD}
-RUN echo "<?php \$pass = '{MYSQL_ROOT_PASSWORD}' ?>" >  /app/ws/pass.php 
+RUN sh /app/deploy/sql/sqlfetch.sh
+RUN echo "<?php \$pass = '' ?>" >  /app/ws/pass.php 

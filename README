@@ -1,11 +1,10 @@
-I've failed to get this app to deploy in docker, because of mysql
+You can find a deployed example at: http://apnic.fragspawn.com
 
-The perennial security question is how do we incorporate passwords but not expose them in an untrusted way like on GitHub.
+The source can be found at: https://github.com/fragspawn/apnic
 
-I've tried parameter passing, so on instantiation, set your password as an argument.
+I've chosen chart.js to render data on page request. On load, the page pulls the data via an JQuery AJAX function. A web service encapsulates SQL in a PHP script. 
+The deployment script uses curl to download the data, and import it into a MySQL database, using basic shell commands.
 
-This does not work well with dockerfile or docker-compose.yml
-
-Will spend another hour or two but, going to lunch...
+The docker has proven to be difficult, specifically because of the way docker secures MySQL at run time. A practice of putting passwords into code is frowned upon. I continue to research best practice here. so the solution is not working as at commit v3
 
 JP
